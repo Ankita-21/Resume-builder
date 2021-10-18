@@ -48,9 +48,9 @@ function generateCV() {
     let nameT = document.getElementById('nameT');
     nameT.innerHTML = nameField;
     document.getElementById("name2T").innerHTML = nameField;
-
+    let hop="0";
     //for contact
-    document.getElementById("contactT").innerHTML = document.getElementById('contactField').value;
+    document.getElementById("contactT"+hop).innerHTML = document.getElementById('contactField').value;
     // For adress
     document.getElementById("addressT").innerHTML = document.getElementById('addressField').value;
     //for face book
@@ -102,8 +102,23 @@ function generateCV() {
 
     document.getElementById('cv-form').style.display = 'none'
     document.getElementById('cv-templets').style.display = 'block'
-}
 
+}
+ function changeFontSize(type){
+      //  console.log(type); 
+      let ids = ["#aqT","#acT","#weT","#objectiveT","#name2T","#addressT","#contactT1","#nameT"];
+      ids.forEach(id =>{
+          let el =document.querySelector(id);
+
+          let fontSize = window.getComputedStyle(el,null).getPropertyValue("font-size")
+          fontSize=parseFloat(fontSize);
+          if(type==="increase"){
+              el.style.fontSize=(fontSize+1)+"px";
+          }else{
+            el.style.fontSize=(fontSize-1)+"px";
+          }
+      })
+        }
 //print cv
 function printfCV() {
     window.print();
