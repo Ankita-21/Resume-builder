@@ -1,16 +1,14 @@
-/*#cv-form {
-   / display: none;
-}*/
 
-#cv-templets {
-    display: none;
-}
 
-.myimg {
+
+.myimg1 {
     border: 1px solid black;
     border-radius: 50%;
 }
 
-.background {
+.background1 {
     background-color: cadetblue;
+}
+.hide{
+    display: none;
 }

@@ -43,32 +43,34 @@ function addNewACField() {
     weOb.insertBefore(newNode, weAddButtonOb)
 }
 //generating Cv
-function generateCV() {
-    let nameField = document.getElementById("nameField").value;
-    let nameT = document.getElementById('nameT');
+function generateCV(h) {
+
+   
+    let nameField = document.getElementById('nameField').value;
+    let nameT = document.getElementById("nameT"+h);
     nameT.innerHTML = nameField;
-    document.getElementById("name2T").innerHTML = nameField;
-    let hop="0";
+    document.getElementById("name2T"+h).innerHTML = nameField;
+   // let hop="0";
     //for contact
-    document.getElementById("contactT"+hop).innerHTML = document.getElementById('contactField').value;
+    document.getElementById("contactT"+h).innerHTML = document.getElementById('contactField').value;
     // For adress
-    document.getElementById("addressT").innerHTML = document.getElementById('addressField').value;
+    document.getElementById("addressT"+h).innerHTML = document.getElementById('addressField').value;
     //for face book
-    document.getElementById("cdT").innerHTML = document.getElementById('cdField').value;
-    document.getElementById("ccT").innerHTML = document.getElementById('ccField').value;
-    document.getElementById("hrT").innerHTML = document.getElementById('hrField').value;
-    document.getElementById("fbT").innerHTML = document.getElementById('fbField').value;
-    document.getElementById("inT").innerHTML = document.getElementById('InstaField').value;
-    document.getElementById("linkedT").innerHTML = document.getElementById('linkedField').value;
+    document.getElementById("cdT"+h).innerHTML = document.getElementById('cdField').value;
+    document.getElementById("ccT"+h).innerHTML = document.getElementById('ccField').value;
+    document.getElementById("hrT"+h).innerHTML = document.getElementById('hrField').value;
+    document.getElementById("fbT"+h).innerHTML = document.getElementById('fbField').value;
+    document.getElementById("inT"+h).innerHTML = document.getElementById('InstaField').value;
+    document.getElementById("linkedT"+h).innerHTML = document.getElementById('linkedField').value;
     // objective
-    document.getElementById("objectiveT").innerHTML = document.getElementById('objectiveField').value;
+    document.getElementById("objectiveT"+h).innerHTML = document.getElementById('objectiveField').value;
     //work experiance
     let wes = document.getElementsByClassName('weField')
     let str = ''
     for (let e of wes) {
         str = str + `<li> ${e.value}</li>`;
     }
-    document.getElementById('weT').innerHTML = str;
+    document.getElementById("weT"+h).innerHTML = str;
 
     // Achivements
     let acs = document.getElementsByClassName('acField')
@@ -76,7 +78,7 @@ function generateCV() {
     for (let e of acs) {
         str3 = str3 + `<li> ${e.value}</li>`;
     }
-    document.getElementById('acT').innerHTML = str3;
+    document.getElementById('acT'+h).innerHTML = str3;
 
 
 
@@ -86,7 +88,7 @@ function generateCV() {
     for (let a of aqs) {
         str1 = str1 + `<li> ${a.value}</li>`;
     }
-    document.getElementById('aqT').innerHTML = str1;
+    document.getElementById('aqT'+h).innerHTML = str1;
 
     // for image
     let file = document.getElementById("imageField").files[0]
@@ -96,7 +98,7 @@ function generateCV() {
     console.log(reader.result);
     //set image as templetes
     reader.onloadend = function() {
-        document.getElementById("imgTemplate").src = reader.result;
+        document.getElementById("imgTemplate"+h).src = reader.result;
     };
 
 
@@ -106,7 +108,7 @@ function generateCV() {
 }
  function changeFontSize(type){
       //  console.log(type); 
-      let ids = ["#aqT","#acT","#weT","#objectiveT","#name2T","#addressT","#contactT1","#nameT"];
+      let ids = ["#aqT1","#acT1","#weT1","#objectiveT1","#name2T1","#addressT1","#contactT11","#nameT1","#aqT2","#acT2","#weT2","#objectiveT2","#name2T2","#addressT2","#contactT12","#nameT2","#aqT3","#acT3","#weT3","#objectiveT3","#name2T3","#addressT3","#contactT13","#nameT3"];
       ids.forEach(id =>{
           let el =document.querySelector(id);
 
@@ -119,6 +121,55 @@ function generateCV() {
           }
       })
         }
+      
+function toggleHide1(){
+        let btn1 = document.getElementById('btn1');
+        let para = document.getElementById('cv-templets1'); 
+        let para1 = document.getElementById('cv-templets2'); 
+        let para2 = document.getElementById('cv-templets3'); 
+        let pr1 = document.getElementById('hello1'); 
+        let pr3 = document.getElementById('hello3');
+        let pr2 = document.getElementById('hello2'); 
+        pr2.style.display = 'none';
+        pr3.style.display = 'none';
+        pr1.style.display = 'block';
+        para.style.display = 'block';
+         para1.style.display = 'none';
+        para2.style.display = 'none';
+    }
+    function toggleHide2(){
+        let btn1 = document.getElementById('btn2');
+        let para = document.getElementById('cv-templets2'); 
+         let pr1 = document.getElementById('hello1'); 
+         let pr3 = document.getElementById('hello3');
+         let pr2 = document.getElementById('hello2'); 
+        
+        let para1 = document.getElementById('cv-templets1'); 
+        let para2 = document.getElementById('cv-templets3'); 
+        
+        para.style.display = 'block';
+        pr1.style.display = 'none';
+         pr3.style.display = 'none';
+         pr2.style.display = 'block';
+        para1.style.display = 'none';
+        para2.style.display = 'none';
+    }
+    function toggleHide3(){
+        let btn1 = document.getElementById('btn3');
+        let para = document.getElementById('cv-templets3'); 
+        let para1 = document.getElementById('cv-templets1'); 
+        let para2 = document.getElementById('cv-templets2'); 
+        let pr1 = document.getElementById('hello1'); 
+        let pr3 = document.getElementById('hello3');
+        let pr2 = document.getElementById('hello2'); 
+        pr1.style.display = 'none';
+        pr2.style.display = 'none';
+        pr3.style.display = 'block';
+        para.style.display = 'block';
+        
+        para1.style.display = 'none';
+        para2.style.display = 'none';
+    }
 //print cv
 function printfCV() {
     window.print();
